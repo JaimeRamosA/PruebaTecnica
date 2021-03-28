@@ -9,6 +9,7 @@ use App\Mail\sendMailable;
 use Illuminate\Support\Facades\Mail;
 use Auth;
 use View;
+//use Mail;
 
 class CorreoController extends Controller
 {
@@ -29,13 +30,27 @@ class CorreoController extends Controller
 
         $corre = correo::create($request->all());
 
+        
+        $subject = $request->asunto;
+        $for = $request->destinatario;
+        $emails = $request->all();
+        $mensaje = $request->mensaje;
+    
+
+        Mail::send('correo.send',['mensaj' => $mensaje] , function($msj) use($subject,$for){
+            $msj->from("admin@gmail.com","administrador");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+        
+
         $view = View::make('correo.send', [
             'data' => $corre
         ]);
 
         //dd($view);
-        $correo = new sendMailable;
-        Mail::to($request->destinatario)->send($correo);
+        //$correo = new sendMailable;
+        //Mail::to($request->destinatario)->send($correo);
 
         $res = ['ope'=>'0','msg'=>'Correo Enviado con exito', 'estado'=>true , 'id'=>$corre];
         return $res;

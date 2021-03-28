@@ -1,2 +1,3 @@
-<h4>mensaje de prueba</h4>
-
+<p>
+    {{$mensaj }}
+</p>
