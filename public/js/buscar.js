@@ -36,3 +36,10 @@ function BuscarUsuario(){
     });
     //{{route('buscarUsuario')}}
 }
+
+function lanzar(id){
+    $('#Modal').modal('show');
+    //$('#span').text(nombre); // id emprendimiento
+    //$('#id_usuario').val(idU);
+    //$('#id_emprendimiento').val(id);
+}

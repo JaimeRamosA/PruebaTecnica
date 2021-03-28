@@ -31,4 +31,34 @@ class HomeController extends Controller
         $user = User::where($request->select_buscar, 'like', '%'.$request->dataSearch.'%')->paginate(100);
         return view('search', compact('user'))->render();
     }
+
+    public function edit($id){
+        $user  = User::find($id);
+        return  view('user.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        User::find($id)->update([
+            'name' => $request['name'],
+            'fecha_nacimiento' => $request['fecha_nacimiento'],
+            'telefono' => $request['telefono'],
+            'pais' => $request['pais'],
+            'estado' => $request['estado'],
+            'ciudad' => $request['ciudad'],
+        ]);
+
+        $tipo = 'success';
+        return redirect()->route('dashboard')->with('mensaje', 'Registro Actualizado')->with("tipo", $tipo);
+    
+    }
+
+    public function destroy($id)
+    {
+        User::find($id)->delete();
+        $tipo = 'danger';
+        return redirect()->route('dashboard')->with('mensaje', 'Registro Eliminado')->with("tipo", $tipo);
+    }
+
+    
 }

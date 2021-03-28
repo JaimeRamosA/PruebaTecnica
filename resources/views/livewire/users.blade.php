@@ -62,7 +62,21 @@
                               {{$usuario->roles->implode('name', ',')}}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                              <!--<a href="#" id="md" type="button" onclick="lanzar('{{$usuario->id}}')" class="text-indigo-600 hover:text-indigo-900">Edit</a>-->
+                              <div class="row">
+                                <div class="col">
+                                  <a href="{{route('edit', $usuario->id)}}" id="" type="button"  class="btn btn-sm btn-outline-info">Edit</a>
+                                </div>
+
+                                <div class="col">
+                                  <form action="{{route('destroy', $usuario->id)}}" method="POST">
+                                      {{csrf_field()}}
+                                      <input type="hidden" name="_method" value="DELETE">
+                                      <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                  </form>
+                                </div>
+                              </div>
+                              
                             </td>
                           </tr>
                     @endforeach
@@ -88,4 +102,4 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
