@@ -1,0 +1,3 @@
+
+@livewire('buscar-user')
+
