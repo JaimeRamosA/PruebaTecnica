@@ -248,20 +248,15 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
+            'text'    => 'Correo',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Redactar',
+                    'url'  => '/Redactar',
                 ],
                 [
-                    'text'    => 'level_one',
+                    'text'    => 'Enviados',
                     'url'     => '#',
                     'submenu' => [
                         [
