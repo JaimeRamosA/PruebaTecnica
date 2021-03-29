@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 Route::get('/perfil', function () {
     return view('user.perfil');
-});
+})->middleware('auth');
 
-Route::get('/body', function () {
-    return view('correo.send');
+Route::get('/consultas', function () {
+    return view('consultas.index');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -37,13 +37,13 @@ Route::post('user/{id}', [App\Http\Controllers\HomeController::class, 'update'])
 Route::delete('user/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy')->middleware('auth');
 
 
-Route::get('Redactar', [App\Http\Controllers\CorreoController::class, 'index'])->name('Redactar');
-Route::post('Enviar', [App\Http\Controllers\CorreoController::class, 'enviar'])->name('Enviar');
-Route::get('Enviados', [App\Http\Controllers\CorreoController::class, 'Enviados'])->name('Enviados');
+Route::get('Redactar', [App\Http\Controllers\CorreoController::class, 'index'])->name('Redactar')->middleware('auth');
+Route::post('Enviar', [App\Http\Controllers\CorreoController::class, 'enviar'])->name('Enviar')->middleware('auth');
+Route::get('Enviados', [App\Http\Controllers\CorreoController::class, 'Enviados'])->name('Enviados')->middleware('auth');
 
 Route::get('/send', function () {
     $correo = new sendMailable;
 
     Mail::to('fabiocordoba@gmail.com')->send($correo);
     return "correo enviado";
-});
+})->middleware('auth');

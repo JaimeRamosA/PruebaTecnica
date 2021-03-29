@@ -83,7 +83,11 @@
                         @endif 
                       
                     </tbody>
-                    
+                    <tfoot>
+                      <tr>
+                        <td colspan="5" class="bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> {{ $emails->links() }}</td>
+                      </tr>
+                    </tfoot>
         
                   </table>
             </div>

@@ -17,3 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group([
+
+    'middleware' => 'api',
+    'namespace' => 'App\Http\Controllers\API',
+
+], function ($router) {
+
+    Route::get('listar-email', 'ConsultaAPIController@listar');
+
+});
+
+
+//Route::get('listar-email', [App\Http\Controllers\API\ConsultaAPIController::class, 'listar']);
+
+
+

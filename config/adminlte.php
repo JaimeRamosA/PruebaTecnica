@@ -256,28 +256,8 @@ return [
                     'url'  => '/Redactar',
                 ],
                 [
-                    'text'    => 'Enviados',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Enviados',
+                    'url'  => '/Enviados',
                 ],
                 [
                     'text' => 'level_one',

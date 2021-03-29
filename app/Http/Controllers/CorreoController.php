@@ -58,7 +58,9 @@ class CorreoController extends Controller
     }
 
     public function Enviados(){
-        $emails = correo::where('id_user',Auth::user()->id)->get();
+        $emails = correo::where('id_user',Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
         return view('correo.enviados',compact('emails'));
     }
+
+
 }
