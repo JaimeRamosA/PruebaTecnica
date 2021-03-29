@@ -33830,8 +33830,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\isa\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\isa\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\laragon\www\PRUEBA_TECNICA\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\PRUEBA_TECNICA\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
