@@ -25,10 +25,9 @@
             </div>
             <div class="card-body">
                 <!--action="{{route('Enviar')}}" method="post"-->
-                <form id="FormEnviar"  >
+                <form id="FormEnviar" >
                     {{csrf_field()}}
                     <div class="mb-3">
-                        <input type="hidden" name="id_user" id="id_user" value="{{Auth::user()->id}}">
                         <input type="email" class="form-control " name="destinatario" id="destinatario" placeholder="name@example.com">
                         <label for="exampleFormControlTextarea1" class="form-label"></label>
                         <input type="text" class="form-control" name="asunto" id="asunto" placeholder="Asunto">
@@ -40,6 +39,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm btn-outline-primary" onclick="nuevoCorreo()">Nuevo</button>
                         <button type="button" class="btn btn-sm btn-primary" onclick="enviar()">Enviar</button>
+                        <!--onclick="enviar()"-->
                     </div>
                 </form>
             </div>

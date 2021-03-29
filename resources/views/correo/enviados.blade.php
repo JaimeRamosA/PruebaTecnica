@@ -53,6 +53,9 @@
                                             Asunto: {{$mail->asunto}}
                                           </div>
                                           <div class="text-sm text-gray-500">
+                                            from:{{$mail->id_user}}
+                                          </div>
+                                          <div class="text-sm text-gray-500">
                                             to:{{$mail->destinatario}}
                                           </div>
                                           <div class="text-sm text-gray-500">

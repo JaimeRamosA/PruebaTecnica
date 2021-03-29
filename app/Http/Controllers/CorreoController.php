@@ -18,6 +18,8 @@ class CorreoController extends Controller
     }
 
     public function enviar(Request $request){
+
+        //dd(Auth::user()->email, $request->all());
         Validator::make($request->all(), [
             'asunto' => 'required',
             'destinatario' => 'required',
@@ -26,19 +28,26 @@ class CorreoController extends Controller
             'asunto.required' => 'Debes ingresar un asunto',
             'destinatario.required' => 'Debes ingresar un asunto',
             'mensaje.required' => 'Debes ingresar un asunto',
+            
         ])->validate();
-
-        $corre = correo::create($request->all());
-
+        
+        $corre = correo::create([
+            'id_user' => Auth::user()->email,
+            'destinatario' => $request->destinatario,
+            'asunto' => $request->asunto,
+            'mensaje' => $request->mensaje,
+            'estado' => 'SEND'
+        ]);
+        //dd($corre);
         
         $subject = $request->asunto;
         $for = $request->destinatario;
-        $emails = $request->all();
         $mensaje = $request->mensaje;
-    
+
+        //$nombre  = Auth::where('email',$remitente)->pluck('name');
 
         Mail::send('correo.send',['mensaj' => $mensaje] , function($msj) use($subject,$for){
-            $msj->from("admin@gmail.com","administrador");
+            $msj->from([Auth::user()->email],"admin");
             $msj->subject($subject);
             $msj->to($for);
         });
@@ -58,7 +67,7 @@ class CorreoController extends Controller
     }
 
     public function Enviados(){
-        $emails = correo::where('id_user',Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
+        $emails = correo::where('id_user',Auth::user()->email)->orderBy('created_at', 'desc')->paginate(10);
         return view('correo.enviados',compact('emails'));
     }
 

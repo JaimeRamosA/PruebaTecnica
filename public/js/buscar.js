@@ -18,6 +18,7 @@ function nuevoCorreo(){
 function enviar(){
     var datos=formData('FormEnviar');
     var _token=token();
+    console.log(datos);
     $.ajax({
         headers: {'X-CSRF-TOKEN':_token},
         url: 'Enviar',

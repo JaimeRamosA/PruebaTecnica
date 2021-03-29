@@ -3847,7 +3847,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3872,6 +3871,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
 //
 //
 //
@@ -21634,16 +21637,16 @@ var staticRenderFns = [
                   [_vm._v("Seleccionar")]
                 ),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "name" } }, [_vm._v("Nombre")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "identificacion" } }, [
-                  _vm._v("Cedula")
+                _c("option", { attrs: { value: "asunto" } }, [
+                  _vm._v("Asunto")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "email" } }, [_vm._v("Correo")]),
+                _c("option", { attrs: { value: "destinatario" } }, [
+                  _vm._v("Destinatario")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "telefono" } }, [
-                  _vm._v("Telefono")
+                _c("option", { attrs: { value: "remitente" } }, [
+                  _vm._v("Remitente")
                 ])
               ]
             ),
@@ -21706,6 +21709,10 @@ var render = function() {
           { staticClass: "bg-white divide-y divide-gray-200" },
           _vm._l(_vm.todos, function(todo) {
             return _c("tr", { attrs: { "todo.id": "" } }, [
+              _c("td", { staticClass: "px-6 py-4 whitespace-nowrap" }, [
+                _vm._v(_vm._s(todo.id_user))
+              ]),
+              _vm._v(" "),
               _c("td", { staticClass: "px-6 py-4 whitespace-nowrap" }, [
                 _vm._v(_vm._s(todo.destinatario))
               ]),
@@ -21786,6 +21793,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c(
+          "th",
+          {
+            staticClass:
+              "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
+            attrs: { scope: "col" }
+          },
+          [_vm._v("\n                    Remitente\n                  ")]
+        ),
+        _vm._v(" "),
         _c(
           "th",
           {

@@ -26,7 +26,8 @@ Route::group([
 ], function ($router) {
 
     Route::get('listar-email', 'ConsultaAPIController@listar');
-
+    Route::get('buscar', 'ConsultaAPIController@Buscar');
+    
 });
 
 
