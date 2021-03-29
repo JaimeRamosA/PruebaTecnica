@@ -69,10 +69,11 @@
                                 </div>
 
                                 <div class="col">
-                                  <form action="{{route('destroy', $usuario->id)}}" method="POST">
+                                  <form action="">
                                       {{csrf_field()}}
                                       <input type="hidden" name="_method" value="DELETE">
-                                      <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                      
+                                      <button type="button" onclick="eliminarUsuario('{{$usuario->id}}')"  class="btn btn-sm btn-outline-danger">Eliminar</button>
                                   </form>
                                 </div>
                               </div>

@@ -53,11 +53,13 @@ class HomeController extends Controller
     
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        User::find($id)->delete();
+        User::find($request->id)->delete();
         $tipo = 'danger';
-        return redirect()->route('dashboard')->with('mensaje', 'Registro Eliminado')->with("tipo", $tipo);
+        $res = ['ope'=>'0','msg'=>'Registro Eliminado', 'estado'=>true ];
+        return $res;
+        //return redirect()->route('dashboard')->with('mensaje', 'Registro Eliminado')->with("tipo", $tipo);
     }
 
     
